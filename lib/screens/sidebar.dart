@@ -27,6 +27,9 @@ class _SidebarScreenState extends State<SidebarScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(children: [
+
+              ],)
               MenuItem(menuItemsData[0]),
               MenuItem(menuItemsData[1]),
               MenuItem(menuItemsData[2]),
