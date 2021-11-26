@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/models/menu_items.dart';
-
-import '../constants.dart';
+import 'package:movies_2021_2022/styles/constants.dart';
+import 'package:movies_2021_2022/models/data_item.dart';
 
 class MenuItem extends StatelessWidget {
   final MenuItemData _menuItemData;
@@ -17,13 +16,13 @@ class MenuItem extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(11)),
-                gradient: _menuItemData.itemGradient,
+                gradient: _menuItemData.gradient,
               ),
               child: IconButton(
-                icon: _menuItemData.itemIcon,
+                icon: _menuItemData.icon,
                 color: Colors.white,
                 onPressed: () {
-                  print(_menuItemData.itemName);
+                  print(_menuItemData.name);
                 },
               ),
             ),
@@ -31,14 +30,14 @@ class MenuItem extends StatelessWidget {
               width: 12,
             ),
             Text(
-              _menuItemData.itemName,
+              _menuItemData.name,
               style: fontStyleMenuItem,
             ),
           ],
         ),
         SizedBox(
           height: 20,
-        ),
+        )
       ],
     );
   }

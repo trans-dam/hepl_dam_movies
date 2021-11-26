@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_2021_2022/Partials/menu_item.dart';
-import 'package:movies_2021_2022/models/menu_items.dart';
+import 'package:movies_2021_2022/models/data_item.dart';
 
-import '../constants.dart';
+import '../styles/constants.dart';
 import 'home_screen.dart';
 
 class SidebarScreen extends StatefulWidget {
@@ -27,28 +27,20 @@ class _SidebarScreenState extends State<SidebarScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                child: MenuItem(MenuItemsData[0]),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
-                  );
-                },
-              ),
-              MenuItem(MenuItemsData[1]),
-              MenuItem(MenuItemsData[2]),
+              MenuItem(menuItemsData[0]),
+              MenuItem(menuItemsData[1]),
+              MenuItem(menuItemsData[2]),
               Spacer(),
               Row(
                 children: const [
                   Icon(
-                    Icons.arrow_back,
+                    Icons.logout,
+                    color: Colors.grey,
                   ),
+                  SizedBox(width: 5),
                   Text(
-                    "Je me déconnecte",
-                    style: TextStyle(fontSize: 12),
+                    "Je me déconnecte!",
+                    style: fontStyleLegend,
                   ),
                 ],
               )

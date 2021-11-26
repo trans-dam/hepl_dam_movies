@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/constants.dart';
+import 'package:movies_2021_2022/styles/constants.dart';
 import 'package:movies_2021_2022/screens/sidebar.dart';
 
 void main() {

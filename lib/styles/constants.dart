@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const mainBackgroundColor = const Color(0xFFeaeaea);
 const fontStyleMenuItem = TextStyle(fontWeight: FontWeight.w600, fontSize: 18);
+const fontStyleLegend = TextStyle(fontSize: 14, color: Colors.grey);
 const homeGradientButton = LinearGradient(
   begin: Alignment.topRight,
   end: Alignment.bottomLeft,
