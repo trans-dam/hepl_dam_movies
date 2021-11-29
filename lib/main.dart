@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_2021_2022/screens/home_screen.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 import 'package:movies_2021_2022/screens/sidebar.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         backgroundColor: mainBackgroundColor,
-        body: SidebarScreen(),
+        body: HomeScreen(),
       ),
     );
   }

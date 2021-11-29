@@ -14,6 +14,8 @@ class MenuItem extends StatelessWidget {
         Row(
           children: [
             Container(
+              width: defaultWidth,
+              height: defaultWidth,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(11)),
                 gradient: _menuItemData.gradient,
@@ -27,7 +29,7 @@ class MenuItem extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: 12,
+              width: horizontalSpace * 0.8,
             ),
             Text(
               _menuItemData.name,
@@ -36,7 +38,7 @@ class MenuItem extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 20,
+          height: verticalSpace,
         )
       ],
     );

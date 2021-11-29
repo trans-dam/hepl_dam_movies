@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:movies_2021_2022/Partials/menu_item.dart';
 import 'package:movies_2021_2022/models/data_item.dart';
+import 'package:movies_2021_2022/partials/avatar.dart';
 
 import '../styles/constants.dart';
 import 'home_screen.dart';
@@ -27,9 +29,31 @@ class _SidebarScreenState extends State<SidebarScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(children: [
-
-              ],)
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Avatar(),
+                      SizedBox(
+                        width: horizontalSpace,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Daniel Schreurs"),
+                          Text(
+                            "HEPL - DAM",
+                            style: fontStyleLegend,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: verticalSpace * 2,
+                  )
+                ],
+              ),
               MenuItem(menuItemsData[0]),
               MenuItem(menuItemsData[1]),
               MenuItem(menuItemsData[2]),
