@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_2021_2022/screens/home_screen.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
-import 'package:movies_2021_2022/screens/sidebar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        cupertinoOverrideTheme: CupertinoThemeData(
+          primaryColor: mainTextColor,
+        ),
+        textSelectionTheme: TextSelectionThemeData(cursorColor: mainTextColor),
       ),
       home: Scaffold(
         backgroundColor: mainBackgroundColor,

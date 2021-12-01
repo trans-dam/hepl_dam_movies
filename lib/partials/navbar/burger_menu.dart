@@ -18,14 +18,12 @@ class _BurgerMenuState extends State<BurgerMenu> {
         boxShadow: boxShadowItem,
       ),
       child: Padding(
-        padding:
-        const EdgeInsets.symmetric(horizontal: 7, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
         child: Image(
           width: 30,
           height: 14,
           image: AssetImage('assets/icons/icon-sidebar.png'),
         ),
-
       ),
     );
   }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 const mainBackgroundColor = const Color(0xFFeaeaea);
+const mainTextColor = const Color(0xFF254D60);
 const double horizontalSpace = 16;
 const double verticalSpace = 26;
-const double defaultWidth = 42;
+const double defaultWidth = 36;
+const double defaultNavbarSpacer = 17;
 const BorderRadius borderRadiusItem = BorderRadius.all(Radius.circular(10));
 
 List<BoxShadow> boxShadowItem = [
