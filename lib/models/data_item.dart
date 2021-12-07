@@ -21,17 +21,17 @@ List<MenuItemData> menuItemsData = [
       const Icon(
         Icons.home,
       ),
-      homeGradientButton),
+      kHomeGradientButton),
   MenuItemData(
       "Paiement",
       const Icon(
         Icons.credit_card,
       ),
-      paymentGradientButton),
+      kPaymentGradientButton),
   MenuItemData(
       "Réglages",
       const Icon(
         Icons.settings,
       ),
-      settingsGradientButton),
+      kSettingsGradientButton),
 ];

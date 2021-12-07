@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:movies_2021_2022/Partials/menu_item.dart';
 import 'package:movies_2021_2022/models/data_item.dart';
 import 'package:movies_2021_2022/partials/avatar.dart';
+import 'package:movies_2021_2022/partials/sidebar/menu_item.dart';
 
 import '../styles/constants.dart';
-import 'home_screen.dart';
 
 class SidebarScreen extends StatefulWidget {
   const SidebarScreen({Key? key}) : super(key: key);
@@ -34,12 +33,12 @@ class _SidebarScreenState extends State<SidebarScreen> {
                   Row(
                     children: [
                       Avatar(),
-                      SizedBox(
-                        width: horizontalSpace,
+                      const SizedBox(
+                        width: kHorizontalSpace,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text("Daniel Schreurs"),
                           Text(
                             "HEPL - DAM",
@@ -49,8 +48,8 @@ class _SidebarScreenState extends State<SidebarScreen> {
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: verticalSpace * 2,
+                  const SizedBox(
+                    height: kVerticalSpacer * 2,
                   )
                 ],
               ),

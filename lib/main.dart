@@ -18,12 +18,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         cupertinoOverrideTheme: CupertinoThemeData(
-          primaryColor: mainTextColor,
+          primaryColor: kMainTextColor,
         ),
-        textSelectionTheme: TextSelectionThemeData(cursorColor: mainTextColor),
+        textSelectionTheme: TextSelectionThemeData(cursorColor: kMainTextColor),
+        primaryColor: kMainTextColor,
       ),
       home: Scaffold(
-        backgroundColor: mainBackgroundColor,
+        backgroundColor: kMainBackgroundColor,
         body: HomeScreen(),
       ),
     );

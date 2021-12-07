@@ -10,12 +10,12 @@ class Avatar extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(24)),
-        boxShadow: boxShadowItem,
+        boxShadow: kBoxShadowItem,
       ),
       child: Image(
         image: AssetImage('assets/img/profile.jpg'),
-        width: defaultWidth,
-        height: defaultWidth,
+        width: kDefaultWidth,
+        height: kDefaultWidth,
       ),
     );
   }

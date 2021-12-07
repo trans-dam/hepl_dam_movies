@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/partials/avatar.dart';
-import 'package:movies_2021_2022/partials/navbar/burger_menu.dart';
-import 'package:movies_2021_2022/partials/navbar/search_field.dart';
+import 'package:movies_2021_2022/partials/navbar/nav_bar.dart';
+import 'package:movies_2021_2022/partials/sliders/movie_slider.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,30 +29,33 @@ class _HomePageState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          NavBar(),
           Padding(
-            padding: const EdgeInsets.all(14),
-            child: Row(
-              children: [
-                BurgerMenu(),
-                SizedBox(
-                  width: defaultNavbarSpacer,
-                ),
-                SearchField(),
-                SizedBox(
-                  width: defaultNavbarSpacer,
-                ),
-                Icon(
-                  Icons.notifications,
-                  color: mainTextColor,
+            padding: const EdgeInsets.only(
+                left: kDefaultSpacer, top: kVerticalSpacer),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  "Films populaires",
+                  style: kLargeTitleStyle,
                 ),
                 SizedBox(
-                  width: defaultNavbarSpacer,
+                  height: 5,
                 ),
-                Avatar()
+                Text(
+                  "Cette semaine",
+                  style: kSubtitleStyle,
+                ),
+                SizedBox(
+                  height: kVerticalSpacer,
+                )
               ],
             ),
           ),
+          MovieSlider(),
         ],
       ),
     );
