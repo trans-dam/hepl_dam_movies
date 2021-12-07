@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:movies_2021_2022/cards/movie_rate.dart';
 import 'package:movies_2021_2022/models/movie.dart';
@@ -6,31 +7,48 @@ import 'package:movies_2021_2022/styles/constants.dart';
 
 import 'movie_picture.dart';
 
-class MovieCard extends StatelessWidget {
+class MovieCard extends StatefulWidget {
   final Movie _movie;
   final bool _isLast;
 
   const MovieCard(this._movie, this._isLast, {Key? key}) : super(key: key);
 
   @override
+  State<MovieCard> createState() => _MovieCardState();
+}
+
+class _MovieCardState extends State<MovieCard> {
+  late DateFormat dateFormat;
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting();
+    dateFormat = DateFormat.yMMMMd('fr');
+  }
+
+  void _refresh() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: kDefaultSpacer, right: _isLast ? kDefaultSpacer : 0),
+          left: kDefaultSpacer, right: widget._isLast ? kDefaultSpacer : 0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Stack(
           alignment: AlignmentDirectional.bottomStart,
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 25),
-              child: MoviePicture(_movie.posterPath),
+              child: MoviePicture(widget._movie.posterPath),
             ),
             Row(
               children: [
                 const SizedBox(
                   width: kDefaultSpacer,
                 ),
-                MovieRate(voteAverage: _movie.voteAverage),
+                MovieRate(voteAverage: widget._movie.voteAverage),
               ],
             )
           ],
@@ -41,7 +59,7 @@ class MovieCard extends StatelessWidget {
         Container(
           width: 154,
           child: Text(
-            _movie.title,
+            widget._movie.title,
             softWrap: true,
             maxLines: 2,
             style: kCardTitleStyle.apply(color: kMainTextColor),
@@ -49,7 +67,7 @@ class MovieCard extends StatelessWidget {
         ),
         SizedBox(height: 6),
         Text(
-          DateFormat.yMMMMd().format(_movie.releaseDate),
+          dateFormat.format(widget._movie.releaseDate),
           style: kCardSubtitleStyle.apply(color: kMainTextColor),
           textAlign: TextAlign.left,
         )

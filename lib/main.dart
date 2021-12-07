@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:movies_2021_2022/screens/home_screen.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 
