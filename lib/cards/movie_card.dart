@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:movies_2021_2022/cards/movie_rate.dart';
 import 'package:movies_2021_2022/models/movie.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
@@ -48,7 +49,7 @@ class MovieCard extends StatelessWidget {
         ),
         SizedBox(height: 6),
         Text(
-          _movie.releaseDate,
+          DateFormat.yMMMMd().format(_movie.releaseDate),
           style: kCardSubtitleStyle.apply(color: kMainTextColor),
           textAlign: TextAlign.left,
         )

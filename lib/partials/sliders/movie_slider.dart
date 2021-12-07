@@ -37,7 +37,6 @@ class _MovieSliderState extends State<MovieSlider> {
             _movies.add(Movie.fromJson(data));
           });
         }
-        print(_movies);
       } else {
         throw Exception(
             "Oups ! ${response.statusCode} - ${response.reasonPhrase}");
