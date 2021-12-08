@@ -19,7 +19,8 @@ class MediaRate extends StatelessWidget {
             restartAnimation: true,
             backgroundColor: Colors.transparent,
             circularStrokeCap: CircularStrokeCap.round,
-            percent: voteAverage / 10,
+            // Bug: "animation: true" and "percent== 1" causes an infinite animation
+            percent: voteAverage == 10.0 ? 0.99 : voteAverage / 10,
             center: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
