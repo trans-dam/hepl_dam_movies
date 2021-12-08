@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             const TextSelectionThemeData(cursorColor: kMainTextColor),
         primaryColor: kMainTextColor,
       ),
-      home: Scaffold(
+      home: const Scaffold(
         backgroundColor: kMainBackgroundColor,
         body: HomeScreen(),
       ),

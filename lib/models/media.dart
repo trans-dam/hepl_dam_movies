@@ -1,4 +1,4 @@
-class Movie {
+class Media {
   int movieId;
   String title;
   String backdropPath;
@@ -8,7 +8,7 @@ class Movie {
   double voteAverage;
   DateTime releaseDate;
 
-  Movie(
+  Media(
       {this.movieId = 0,
       this.title = "",
       this.backdropPath = "",
@@ -18,8 +18,8 @@ class Movie {
       this.voteAverage = 0,
       required this.releaseDate});
 
-  factory Movie.fromJson(Map<String, dynamic> json) {
-    return Movie(
+  factory Media.fromJson(Map<String, dynamic> json) {
+    return Media(
       movieId: json['id'],
       title: json['title'] ?? json['name'],
       backdropPath: json['backdrop_path'],
@@ -27,7 +27,8 @@ class Movie {
       overview: json['overview'],
       popularity: json['popularity'].toDouble(),
       voteAverage: json['vote_average'].toDouble(),
-      releaseDate: DateTime.parse(json['release_date']),
+      releaseDate:
+          DateTime.parse(json['release_date'] ?? json['first_air_date']),
     );
   }
 

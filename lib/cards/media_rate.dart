@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-class MovieRate extends StatelessWidget {
-  const MovieRate({Key? key, required this.voteAverage}) : super(key: key);
+class MediaRate extends StatelessWidget {
+  const MediaRate({Key? key, required this.voteAverage}) : super(key: key);
   final double voteAverage;
 
   @override

@@ -2,20 +2,25 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_2021_2022/models/movie.dart';
+import 'package:movies_2021_2022/models/media.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 
-import '../../cards/movie_card.dart';
+import '../../cards/media_card.dart';
 
-class MovieSlider extends StatefulWidget {
-  const MovieSlider({Key? key}) : super(key: key);
+class MediaSlider extends StatefulWidget {
+  final String _title;
+  final String _subTitle;
+  final String _type;
+
+  const MediaSlider(this._title, this._subTitle, this._type, {Key? key})
+      : super(key: key);
 
   @override
-  _MovieSliderState createState() => _MovieSliderState();
+  _MediaSliderState createState() => _MediaSliderState();
 }
 
-class _MovieSliderState extends State<MovieSlider> {
-  final List<Movie> _movies = [];
+class _MediaSliderState extends State<MediaSlider> {
+  final List<Media> _movies = [];
 
   int _currentMovie = 0;
 
@@ -28,14 +33,21 @@ class _MovieSliderState extends State<MovieSlider> {
   void getMoviesFromApi() {
     http
         .get(Uri.parse(
-            "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr"))
+            "https://api.themoviedb.org/3/discover/${widget._type}?sort_by=popularity.desc&api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr"))
         .then((response) {
       if (response.statusCode == 200) {
         dynamic datas = jsonDecode(response.body);
         for (var data in datas['results']) {
-          setState(() {
-            _movies.add(Movie.fromJson(data));
-          });
+          // If the media cannot be parsed, then it is bound to be a problem. It is only added if all fields are filled in
+          try {
+            Media movie = Media.fromJson(data);
+            setState(() {
+              _movies.add(movie);
+            });
+          } catch (error) {
+            print("Unable to add media ${_movies}");
+            print(error);
+          }
         }
       } else {
         throw Exception(
@@ -80,16 +92,16 @@ class _MovieSliderState extends State<MovieSlider> {
               top: kVerticalSpacer),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                "Films populaires",
+                widget._title,
                 style: kLargeTitleStyle,
               ),
               SizedBox(
                 height: 5,
               ),
               Text(
-                "Cette semaine",
+                widget._subTitle,
                 style: kSubtitleStyle,
               ),
               SizedBox(
@@ -98,7 +110,7 @@ class _MovieSliderState extends State<MovieSlider> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: 350,
           child: PageView.builder(
               scrollDirection: Axis.horizontal,
@@ -111,12 +123,10 @@ class _MovieSliderState extends State<MovieSlider> {
                 });
               },
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  child: Opacity(
-                      opacity: _currentMovie == index ? 1 : 0.7,
-                      child: MovieCard(
-                          _movies[index], index == _movies.length - 1)),
-                );
+                return Opacity(
+                    opacity: _currentMovie == index ? 1 : 0.7,
+                    child:
+                        MediaCard(_movies[index], index == _movies.length - 1));
               }),
         ),
         updateIndicators(),

@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:movies_2021_2022/cards/movie_rate.dart';
-import 'package:movies_2021_2022/models/movie.dart';
+import 'package:movies_2021_2022/cards/media_rate.dart';
+import 'package:movies_2021_2022/models/media.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 
-import 'movie_picture.dart';
+import 'media_picture.dart';
 
-class MovieCard extends StatefulWidget {
-  final Movie _movie;
+class MediaCard extends StatefulWidget {
+  final Media _movie;
   final bool _isLast;
 
-  const MovieCard(this._movie, this._isLast, {Key? key}) : super(key: key);
+  const MediaCard(this._movie, this._isLast, {Key? key}) : super(key: key);
 
   @override
-  State<MovieCard> createState() => _MovieCardState();
+  State<MediaCard> createState() => _MediaCardState();
 }
 
-class _MovieCardState extends State<MovieCard> {
+class _MediaCardState extends State<MediaCard> {
   late DateFormat dateFormat;
   @override
   void initState() {
@@ -41,14 +41,14 @@ class _MovieCardState extends State<MovieCard> {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 25),
-              child: MoviePicture(widget._movie.posterPath),
+              child: MediaPicture(widget._movie.posterPath),
             ),
             Row(
               children: [
                 const SizedBox(
                   width: kDefaultSpacer,
                 ),
-                MovieRate(voteAverage: widget._movie.voteAverage),
+                MediaRate(voteAverage: widget._movie.voteAverage),
               ],
             )
           ],

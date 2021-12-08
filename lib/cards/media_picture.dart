@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_2021_2022/styles/constants.dart';
 
-class MoviePicture extends StatelessWidget {
+class MediaPicture extends StatelessWidget {
   final String _moviePath;
 
-  const MoviePicture(this._moviePath, {Key? key}) : super(key: key);
+  const MediaPicture(this._moviePath, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
