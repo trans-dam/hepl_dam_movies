@@ -71,7 +71,33 @@ class _MovieSliderState extends State<MovieSlider> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Padding(
+          padding: const EdgeInsets.only(
+              left: kDefaultSpacer,
+              right: kDefaultSpacer,
+              top: kVerticalSpacer),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "Films populaires",
+                style: kLargeTitleStyle,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "Cette semaine",
+                style: kSubtitleStyle,
+              ),
+              SizedBox(
+                height: kVerticalSpacer,
+              )
+            ],
+          ),
+        ),
         Container(
           height: 350,
           child: PageView.builder(
