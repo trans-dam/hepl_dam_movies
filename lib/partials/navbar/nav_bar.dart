@@ -1,6 +1,6 @@
+import 'package:Movies/partials/navbar/search_field.dart';
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/partials/navbar/search_field.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 import '../avatar.dart';
 import 'burger_menu.dart';
@@ -18,7 +18,7 @@ class _NavBarState extends State<NavBar> {
     return Padding(
       padding: const EdgeInsets.all(kDefaultSpacer),
       child: Row(
-        children: [
+        children: const [
           BurgerMenu(),
           SizedBox(
             width: kDefaultSpacer,

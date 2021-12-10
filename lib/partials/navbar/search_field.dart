@@ -1,5 +1,5 @@
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 class SearchField extends StatefulWidget {
   const SearchField({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _SearchFieldState extends State<SearchField> {
           onChanged: (text) {
             print(text);
           },
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             contentPadding: EdgeInsets.all(0),
             isDense: true,
             border: InputBorder.none,

@@ -1,5 +1,5 @@
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 class BurgerMenu extends StatefulWidget {
   const BurgerMenu({Key? key}) : super(key: key);
@@ -11,18 +11,23 @@ class BurgerMenu extends StatefulWidget {
 class _BurgerMenuState extends State<BurgerMenu> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: kBorderRadiusItem,
-        boxShadow: kBoxShadowItem,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 11),
-        child: Image(
-          width: 30,
-          height: 14,
-          image: AssetImage('assets/icons/icon-sidebar.png'),
+    return GestureDetector(
+      onTap: () {
+        print("Bonjour");
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: kBorderRadiusItem,
+          boxShadow: kBoxShadowItem,
+        ),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 11),
+          child: Image(
+            width: 30,
+            height: 14,
+            image: AssetImage('assets/icons/icon-sidebar.png'),
+          ),
         ),
       ),
     );

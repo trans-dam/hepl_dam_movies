@@ -1,9 +1,9 @@
 import 'dart:convert';
 
+import 'package:Movies/models/media.dart';
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_2021_2022/models/media.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 import '../../cards/media_card.dart';
 

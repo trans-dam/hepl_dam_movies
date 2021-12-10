@@ -1,5 +1,5 @@
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 class MenuItemData {
   final String _name;

@@ -1,8 +1,8 @@
+import 'package:Movies/models/data_item.dart';
+import 'package:Movies/partials/avatar.dart';
+import 'package:Movies/partials/sidebar/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:movies_2021_2022/models/data_item.dart';
-import 'package:movies_2021_2022/partials/avatar.dart';
-import 'package:movies_2021_2022/partials/sidebar/menu_item.dart';
 
 import '../styles/constants.dart';
 

@@ -1,9 +1,9 @@
+import 'package:Movies/cards/media_rate.dart';
+import 'package:Movies/models/media.dart';
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:movies_2021_2022/cards/media_rate.dart';
-import 'package:movies_2021_2022/models/media.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 import 'media_picture.dart';
 

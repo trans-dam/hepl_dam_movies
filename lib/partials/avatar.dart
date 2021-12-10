@@ -1,5 +1,5 @@
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class Avatar extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(24)),
         boxShadow: kBoxShadowItem,
       ),
-      child: Image(
+      child: const Image(
         image: AssetImage('assets/img/profile.jpg'),
         width: kDefaultWidth,
         height: kDefaultWidth,

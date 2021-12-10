@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const kMainBackgroundColor = const Color(0xFFeaeaea);
 const kMainTextColor = const Color(0xFF254D60);
 const kSecondColor = Color(0xFF3F8EFC);
-const kPrimaryLabelColor = Color(0xFF242629);
+const kPrimaryLabelColor = kMainTextColor;
 const kSecondaryLabelColor = Color(0xFF797F8A);
 const kThirdColor = Color(0xFFFF6978);
 const double kHorizontalSpace = 16;

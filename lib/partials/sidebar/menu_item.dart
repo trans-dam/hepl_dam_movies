@@ -1,6 +1,6 @@
+import 'package:Movies/models/data_item.dart';
+import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_2021_2022/models/data_item.dart';
-import 'package:movies_2021_2022/styles/constants.dart';
 
 class MenuItem extends StatelessWidget {
   final MenuItemData _menuItemData;
