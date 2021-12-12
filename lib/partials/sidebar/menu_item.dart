@@ -29,7 +29,7 @@ class MenuItem extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: kHorizontalSpace * 0.8,
+              width: kHorizontalSpacer * 0.8,
             ),
             Text(
               _menuItemData.name,

@@ -34,7 +34,7 @@ class _SidebarScreenState extends State<SidebarScreen> {
                     children: [
                       Avatar(),
                       const SizedBox(
-                        width: kHorizontalSpace,
+                        width: kHorizontalSpacer,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

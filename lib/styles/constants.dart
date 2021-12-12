@@ -6,7 +6,7 @@ const kSecondColor = Color(0xFF3F8EFC);
 const kPrimaryLabelColor = kMainTextColor;
 const kSecondaryLabelColor = Color(0xFF797F8A);
 const kThirdColor = Color(0xFFFF6978);
-const double kHorizontalSpace = 16;
+const double kHorizontalSpacer = 16;
 const double kVerticalSpacer = 26;
 const double kDefaultWidth = 36;
 const double kDefaultSpacer = 17;
@@ -64,7 +64,7 @@ const kLargeTitleStyle = TextStyle(
   decoration: TextDecoration.none,
 );
 const kTitle1Style = TextStyle(
-  fontSize: 22.0,
+  fontSize: 24.0,
   fontWeight: FontWeight.bold,
   color: kPrimaryLabelColor,
   fontFamily: "main",
