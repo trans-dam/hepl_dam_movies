@@ -19,13 +19,13 @@ class _LoginFormState extends State<LoginForm> {
   late String _password;
 
   final _auth = FirebaseAuth.instance;
-  final _formKey = GlobalKey<FormState>();
-  final _formFieldKey = GlobalKey<FormFieldState>();
+  final _loginFormKey = GlobalKey<FormState>();
+  final _loginFormEmailFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: _loginFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kHorizontalSpacer),
         child: Column(
@@ -47,7 +47,7 @@ class _LoginFormState extends State<LoginForm> {
               child: Column(
                 children: [
                   TextFormField(
-                    key: _formFieldKey,
+                    key: _loginFormEmailFieldKey,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'L’adresse mail est obligatoire.';
@@ -114,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             TextButton(
                 onPressed: () {
-                  if (_formFieldKey.currentState!.validate()) {
+                  if (_loginFormEmailFieldKey.currentState!.validate()) {
                     _auth.sendPasswordResetEmail(email: _email).then((value) {
                       MyAlertDialog("Réinitialisation du mot de passe",
                           "Un mail a été envoyé avec succès à l’adresse ${_email}");
@@ -129,7 +129,7 @@ class _LoginFormState extends State<LoginForm> {
                 )),
             GestureDetector(
               onTap: () async {
-                if (_formKey.currentState!.validate()) {
+                if (_loginFormKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Traitement des données...')),
                   );
