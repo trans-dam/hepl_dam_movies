@@ -1,30 +1,29 @@
 import 'dart:core';
 
 import 'package:Movies/models/error_firebase_auth.dart';
-import 'package:Movies/partials/dialogs/alert_dialog.dart';
 import 'package:Movies/partials/headers/app_name.dart';
 import 'package:Movies/partials/headers/app_slogan.dart';
 import 'package:Movies/screens/home_screen.dart';
-import 'package:Movies/screens/register_form.dart';
+import 'package:Movies/screens/login_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+class RegisterForm extends StatefulWidget {
+  const RegisterForm({Key? key}) : super(key: key);
 
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _RegisterFormState createState() => _RegisterFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _RegisterFormState extends State<RegisterForm> {
   late String _email;
   late String _password;
+  late String _username;
 
   final _auth = FirebaseAuth.instance;
   final _loginFormKey = GlobalKey<FormState>();
-  final _loginFormEmailFieldKey = GlobalKey<FormFieldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +50,36 @@ class _LoginFormState extends State<LoginForm> {
                   child: Column(
                     children: [
                       TextFormField(
-                        key: _loginFormEmailFieldKey,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Le nom d’utilisateur est obligatoire';
+                          }
+                          return null;
+                        },
+                        onChanged: (text) {
+                          _username = text;
+                          print(text);
+                        },
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.all(0),
+                          isDense: true,
+                          border: InputBorder.none,
+                          icon: Icon(
+                            Icons.person,
+                            color: kMainTextColor,
+                          ),
+                          hintText: 'Nom d’utilisateur',
+                          hintStyle: TextStyle(
+                            fontSize: 17,
+                            color: kMainTextColor,
+                          ),
+                        ),
+                      ),
+                      Divider(
+                        color: kMainTextColor,
+                        height: kVerticalSpacer * 2,
+                      ),
+                      TextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'L’adresse mail est obligatoire.';
@@ -117,29 +145,16 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (contex) => RegisterForm()));
+                                builder: (contex) => const LoginForm()));
                       },
-                      child: const Text("Créer un compte"),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        if (_loginFormEmailFieldKey.currentState!.validate()) {
-                          _auth
-                              .sendPasswordResetEmail(email: _email)
-                              .then((value) {
-                            MyAlertDialog("Réinitialisation du mot de passe",
-                                "Un mail a été envoyé avec succès à l’adresse ${_email}");
-                          });
-                        }
-                      },
-                      child: const Text("Mot de passe oublié"),
+                      child: const Text("Se connecter"),
                     ),
                   ],
                 ),
@@ -147,8 +162,9 @@ class _LoginFormState extends State<LoginForm> {
                   onTap: () async {
                     if (_loginFormKey.currentState!.validate()) {
                       try {
+                        // TODO register username
                         await _auth
-                            .signInWithEmailAndPassword(
+                            .createUserWithEmailAndPassword(
                                 email: _email, password: _password)
                             .then((value) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -160,7 +176,7 @@ class _LoginFormState extends State<LoginForm> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
+                            builder: (context) => const HomeScreen(),
                           ),
                         );
                       } on FirebaseAuthException catch (e) {
@@ -193,7 +209,7 @@ class _LoginFormState extends State<LoginForm> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Se connecter",
+                          "S’enregistrer",
                           style: kTitleSection.copyWith(fontSize: 20),
                         ),
                       ],
