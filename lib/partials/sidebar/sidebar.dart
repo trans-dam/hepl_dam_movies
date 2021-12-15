@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../styles/constants.dart';
+import '../../styles/constants.dart';
 
 class SidebarScreen extends StatefulWidget {
   const SidebarScreen({Key? key}) : super(key: key);
