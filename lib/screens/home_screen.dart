@@ -1,5 +1,6 @@
 import 'package:Movies/partials/navbar/nav_bar.dart';
 import 'package:Movies/partials/sliders/media_slider.dart';
+import 'package:Movies/screens/sidebar.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,8 @@ class HomeScreen extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomeScreen> {
+class _HomePageState extends State<HomeScreen> with TickerProviderStateMixin {
   late TextEditingController _controller;
-
   @override
   void initState() {
     super.initState();
@@ -28,6 +28,9 @@ class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SidebarScreen(),
+      ),
       body: SafeArea(
         bottom: false,
         child: SingleChildScrollView(

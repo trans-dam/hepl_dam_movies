@@ -1,6 +1,8 @@
 import 'package:Movies/models/data_item.dart';
 import 'package:Movies/partials/avatar.dart';
 import 'package:Movies/partials/sidebar/menu_item.dart';
+import 'package:Movies/screens/login_form.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -14,7 +16,10 @@ class SidebarScreen extends StatefulWidget {
 }
 
 class _SidebarScreenState extends State<SidebarScreen> {
-  @override
+  Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
+
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
@@ -58,15 +63,24 @@ class _SidebarScreenState extends State<SidebarScreen> {
               MenuItem(menuItemsData[2]),
               Spacer(),
               Row(
-                children: const [
+                children: [
                   Icon(
                     Icons.logout,
                     color: Colors.grey,
                   ),
                   SizedBox(width: 5),
-                  Text(
-                    "Je me déconnecte!",
-                    style: fontStyleLegend,
+                  TextButton(
+                    onPressed: () {
+                      _signOut();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginForm()));
+                    },
+                    child: Text(
+                      "Je me déconnecte!",
+                      style: fontStyleLegend,
+                    ),
                   ),
                 ],
               )

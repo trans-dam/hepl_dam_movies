@@ -16,12 +16,14 @@ class MenuItem extends StatelessWidget {
             Container(
               width: kDefaultWidth,
               height: kDefaultWidth,
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: kBorderRadiusItem,
                 gradient: _menuItemData.gradient,
               ),
               child: IconButton(
                 icon: _menuItemData.icon,
+                iconSize: 18,
                 color: Colors.white,
                 onPressed: () {
                   print(_menuItemData.name);

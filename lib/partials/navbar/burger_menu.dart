@@ -13,7 +13,7 @@ class _BurgerMenuState extends State<BurgerMenu> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("Bonjour");
+        Scaffold.of(context).openDrawer();
       },
       child: Container(
         decoration: BoxDecoration(

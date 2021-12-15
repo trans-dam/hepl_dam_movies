@@ -1,4 +1,4 @@
-import 'package:Movies/screens/login_screen.dart';
+import 'package:Movies/screens/login_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,10 +32,7 @@ class MyApp extends StatelessWidget {
                   const TextSelectionThemeData(cursorColor: kMainTextColor),
               primaryColor: kMainTextColor,
             ),
-            home: Scaffold(
-              backgroundColor: kMainBackgroundColor,
-              body: LoginScreen(),
-            ),
+            home: const LoginForm(),
           );
         } else {
           return MaterialApp(
