@@ -144,44 +144,41 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                   ],
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    if (_loginFormKey.currentState!.validate()) {
-                      try {
-                        await _auth
-                            .signInWithEmailAndPassword(
-                                email: _email, password: _password)
-                            .then((value) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text(
-                                    'Bonjour ${_auth.currentUser!.email}')),
-                          );
-                        });
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ),
-                        );
-                      } on FirebaseAuthException catch (e) {
+                Button("Se connecter", () async {
+                  if (_loginFormKey.currentState!.validate()) {
+                    try {
+                      await _auth
+                          .signInWithEmailAndPassword(
+                              email: _email, password: _password)
+                          .then((value) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                              content: Text(
-                                errors[e.code]!,
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                              backgroundColor: Colors.redAccent),
+                              content:
+                                  Text('Bonjour ${_auth.currentUser!.email}')),
                         );
-                      } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Oups ! ${e.toString()}")),
-                        );
-                      }
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
+                    } on FirebaseAuthException catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content: Text(
+                              errors[e.code]!,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: Colors.redAccent),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Oups ! ${e.toString()}")),
+                      );
                     }
-                  },
-                  child: const Button("Se connecter"),
-                )
+                  }
+                }),
               ],
             ),
           ),

@@ -159,44 +159,42 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ],
                 ),
-                GestureDetector(
-                    onTap: () async {
-                      if (_loginFormKey.currentState!.validate()) {
-                        try {
-                          // TODO register username
-                          await _auth
-                              .createUserWithEmailAndPassword(
-                                  email: _email, password: _password)
-                              .then((value) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      'Bonjour ${_auth.currentUser!.email}')),
-                            );
-                          });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                Button("S’enregistrer", () async {
+                  if (_loginFormKey.currentState!.validate()) {
+                    try {
+                      // TODO register username
+                      await _auth
+                          .createUserWithEmailAndPassword(
+                              email: _email, password: _password)
+                          .then((value) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content:
+                                  Text('Bonjour ${_auth.currentUser!.email}')),
+                        );
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ),
+                      );
+                    } on FirebaseAuthException catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                            content: Text(
+                              errors[e.code]!,
+                              style: const TextStyle(color: Colors.white),
                             ),
-                          );
-                        } on FirebaseAuthException catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text(
-                                  errors[e.code]!,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                                backgroundColor: Colors.redAccent),
-                          );
-                        } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Oups ! ${e.toString()}")),
-                          );
-                        }
-                      }
-                    },
-                    child: const Button("S’enregistrer"))
+                            backgroundColor: Colors.redAccent),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Oups ! ${e.toString()}")),
+                      );
+                    }
+                  }
+                })
               ],
             ),
           ),
