@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:Movies/models/error_firebase_auth.dart';
+import 'package:Movies/partials/buttons/button.dart';
 import 'package:Movies/partials/headers/app_name.dart';
 import 'package:Movies/partials/headers/app_slogan.dart';
 import 'package:Movies/screens/home_screen.dart';
@@ -159,63 +160,43 @@ class _RegisterFormState extends State<RegisterForm> {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () async {
-                    if (_loginFormKey.currentState!.validate()) {
-                      try {
-                        // TODO register username
-                        await _auth
-                            .createUserWithEmailAndPassword(
-                                email: _email, password: _password)
-                            .then((value) {
+                    onTap: () async {
+                      if (_loginFormKey.currentState!.validate()) {
+                        try {
+                          // TODO register username
+                          await _auth
+                              .createUserWithEmailAndPassword(
+                                  email: _email, password: _password)
+                              .then((value) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                      'Bonjour ${_auth.currentUser!.email}')),
+                            );
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomeScreen(),
+                            ),
+                          );
+                        } on FirebaseAuthException catch (e) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                                 content: Text(
-                                    'Bonjour ${_auth.currentUser!.email}')),
+                                  errors[e.code]!,
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                backgroundColor: Colors.redAccent),
                           );
-                        });
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomeScreen(),
-                          ),
-                        );
-                      } on FirebaseAuthException catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                              content: Text(
-                                errors[e.code]!,
-                                style: const TextStyle(color: Colors.white),
-                              ),
-                              backgroundColor: Colors.redAccent),
-                        );
-                      } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Oups ! ${e.toString()}")),
-                        );
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Oups ! ${e.toString()}")),
+                          );
+                        }
                       }
-                    }
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: kHorizontalSpacer,
-                        vertical: kVerticalSpacer / 2),
-                    margin: const EdgeInsets.only(top: kVerticalSpacer),
-                    decoration: BoxDecoration(
-                        borderRadius: kBorderRadiusItem,
-                        boxShadow: kBoxShadowItem,
-                        color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "S’enregistrer",
-                          style: kTitleSection.copyWith(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                    },
+                    child: const Button("S’enregistrer"))
               ],
             ),
           ),

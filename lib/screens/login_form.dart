@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:Movies/models/error_firebase_auth.dart';
+import 'package:Movies/partials/buttons/button.dart';
 import 'package:Movies/partials/dialogs/alert_dialog.dart';
 import 'package:Movies/partials/headers/app_name.dart';
 import 'package:Movies/partials/headers/app_slogan.dart';
@@ -179,26 +180,7 @@ class _LoginFormState extends State<LoginForm> {
                       }
                     }
                   },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: kHorizontalSpacer,
-                        vertical: kVerticalSpacer / 2),
-                    margin: const EdgeInsets.only(top: kVerticalSpacer),
-                    decoration: BoxDecoration(
-                        borderRadius: kBorderRadiusItem,
-                        boxShadow: kBoxShadowItem,
-                        color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Se connecter",
-                          style: kTitleSection.copyWith(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: const Button("Se connecter"),
                 )
               ],
             ),
