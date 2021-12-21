@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           print(snapshot.error);
         }
         if (snapshot.connectionState == ConnectionState.done) {
-          User? _user = FirebaseAuth.instance.currentUser;
+          FirebaseAuth.instance.currentUser;
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Movies',
@@ -35,7 +35,9 @@ class MyApp extends StatelessWidget {
                   const TextSelectionThemeData(cursorColor: kMainTextColor),
               primaryColor: kMainTextColor,
             ),
-            home: _user != null ? LoginForm() : HomeScreen(),
+            home: FirebaseAuth.instance.currentUser == null
+                ? LoginForm()
+                : HomeScreen(),
           );
         } else {
           return MaterialApp(

@@ -9,10 +9,10 @@ import 'package:intl/intl.dart';
 import 'media_picture.dart';
 
 class MediaCard extends StatefulWidget {
-  final Media _movie;
+  final Media _media;
   final bool _isLast;
 
-  const MediaCard(this._movie, this._isLast, {Key? key}) : super(key: key);
+  const MediaCard(this._media, this._isLast, {Key? key}) : super(key: key);
 
   @override
   State<MediaCard> createState() => _MediaCardState();
@@ -37,7 +37,7 @@ class _MediaCardState extends State<MediaCard> {
     return GestureDetector(
       onTap: () => {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => SingleMedia(widget._movie)))
+            MaterialPageRoute(builder: (context) => SingleMedia(widget._media)))
       },
       child: Padding(
         padding: EdgeInsets.only(
@@ -48,14 +48,14 @@ class _MediaCardState extends State<MediaCard> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 25),
-                child: MediaPicture(widget._movie.posterPath),
+                child: MediaPicture(widget._media.posterPath),
               ),
               Row(
                 children: [
                   const SizedBox(
                     width: kDefaultSpacer,
                   ),
-                  MediaRate(voteAverage: widget._movie.voteAverage),
+                  MediaRate(voteAverage: widget._media.voteAverage),
                 ],
               )
             ],
@@ -66,7 +66,7 @@ class _MediaCardState extends State<MediaCard> {
           Container(
             width: 154,
             child: Text(
-              widget._movie.title,
+              widget._media.title,
               softWrap: true,
               maxLines: 2,
               style: kCardTitleStyle.apply(color: kMainTextColor),
@@ -74,7 +74,7 @@ class _MediaCardState extends State<MediaCard> {
           ),
           SizedBox(height: 6),
           Text(
-            dateFormat.format(widget._movie.releaseDate),
+            dateFormat.format(widget._media.releaseDate),
             style: kCardSubtitleStyle.apply(color: kMainTextColor),
             textAlign: TextAlign.left,
           )

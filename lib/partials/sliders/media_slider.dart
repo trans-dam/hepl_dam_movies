@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:Movies/models/data_item.dart';
 import 'package:Movies/models/media.dart';
+import 'package:Movies/partials/sidebar/menu_item.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -20,7 +22,7 @@ class MediaSlider extends StatefulWidget {
 }
 
 class _MediaSliderState extends State<MediaSlider> {
-  final List<Media> _movies = [];
+  final List<Media> _medias = [];
 
   int _currentMovie = 0;
 
@@ -42,10 +44,10 @@ class _MediaSliderState extends State<MediaSlider> {
           try {
             Media movie = Media.fromJson(data);
             setState(() {
-              _movies.add(movie);
+              _medias.add(movie);
             });
           } catch (error) {
-            print("Unable to add media ${_movies}");
+            print("Unable to add media ${_medias}");
             print(error);
           }
         }
@@ -61,8 +63,8 @@ class _MediaSliderState extends State<MediaSlider> {
   Widget updateIndicators() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: _movies.map((course) {
-        var index = _movies.indexOf(course);
+      children: _medias.map((course) {
+        var index = _medias.indexOf(course);
         return Container(
           width: 7,
           height: 7,
@@ -114,7 +116,7 @@ class _MediaSliderState extends State<MediaSlider> {
           height: 350,
           child: PageView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: _movies.length,
+              itemCount: _medias.length,
               controller: PageController(initialPage: 1, viewportFraction: 0.4),
               padEnds: false,
               onPageChanged: (index) {
@@ -126,7 +128,7 @@ class _MediaSliderState extends State<MediaSlider> {
                 return Opacity(
                     opacity: _currentMovie == index ? 1 : 0.7,
                     child:
-                        MediaCard(_movies[index], index == _movies.length - 1));
+                        MediaCard(_medias[index], index == _medias.length - 1));
               }),
         ),
         updateIndicators(),
