@@ -21,7 +21,11 @@ class _SingleMediaState extends State<SingleMedia> {
         children: [
           BackdropPath(widget._media.backdropPath),
           const MyCloseButton(),
-          SingleMovieCard(widget._media.posterPath),
+          Row(
+            children: [
+              SingleMovieCard(widget._media.posterPath),
+            ],
+          ),
 
         ],
       ),
