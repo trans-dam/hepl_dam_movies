@@ -116,8 +116,15 @@ const kCardSubtitleStyle = TextStyle(
   fontSize: 13.0,
   decoration: TextDecoration.none,
 );
+
+const kBodyLabelStyle = TextStyle(
+  fontSize: 14.0,
+  color: Colors.black,
+  fontFamily: "main",
+  decoration: TextDecoration.none,
+);
 const kCaptionLabelStyle = TextStyle(
-  fontSize: 12.0,
+  fontSize: 14.0,
   color: kSecondaryLabelColor,
   fontFamily: "main",
   decoration: TextDecoration.none,
