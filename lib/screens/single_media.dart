@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:Movies/cards/backdrop_path.dart';
 import 'package:Movies/cards/single_media_card.dart';
 import 'package:Movies/models/media.dart';
@@ -28,9 +27,7 @@ class _SingleMediaState extends State<SingleMedia> {
   @override
   void initState() {
     super.initState();
-    getMediaDetailFromApi();
-    initializeDateFormatting();
-    dateFormat = DateFormat.yMMMMd('fr');
+    reassemble();
   }
 
   @override
@@ -100,14 +97,26 @@ class _SingleMediaState extends State<SingleMedia> {
                   widget.mediaDetail.tagline,
                   style: kTagLineStyle,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: widget.mediaDetail.genres.map((genre) {
-                    return Text(
-                      '${genre['name']} ${widget.mediaDetail.genres.indexOf(genre) == widget.mediaDetail.genres.length - 1 ? '' : ' - '} ',
-                      style: kGenreStyle,
-                    );
-                  }).toList(),
+                SizedBox(
+                  height: 20,
+                  width: double.infinity,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: widget.mediaDetail.genres.length,
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Text(
+                        " - ",
+                        style: kGenreStyle,
+                      );
+                    },
+                    itemBuilder: (BuildContext context, int index) {
+                      var g = widget.mediaDetail.genres;
+                      return Text(
+                        "${g[index]['name']}",
+                        style: kGenreStyle,
+                      );
+                    },
+                  ),
                 ),
                 const SizedBox(
                   height: kVerticalSpacer,
@@ -149,7 +158,7 @@ class _SingleMediaState extends State<SingleMedia> {
                   height: kVerticalSpacer / 2,
                 ),
                 Text(
-                  '${(widget.mediaDetail.runtime/60).truncate().toString().padLeft(2,'0')} : ${(widget.mediaDetail.runtime %60).truncate().toString().padLeft(2,'0')}',
+                  '${(widget.mediaDetail.runtime / 60).truncate().toString().padLeft(2, '0')} : ${(widget.mediaDetail.runtime % 60).truncate().toString().padLeft(2, '0')}',
                   style: kBodyLabelStyle,
                   textAlign: TextAlign.left,
                 )
