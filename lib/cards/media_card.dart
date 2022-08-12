@@ -1,12 +1,11 @@
 import 'package:Movies/cards/media_rate.dart';
+import 'package:Movies/cards/single_media_picture.dart';
 import 'package:Movies/models/media.dart';
 import 'package:Movies/screens/single_media.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-
-import 'media_picture.dart';
 
 class MediaCard extends StatefulWidget {
   final Media _media;
@@ -48,7 +47,7 @@ class _MediaCardState extends State<MediaCard> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 25),
-                child: MediaPicture(widget._media.posterPath),
+                child: SingleMediaPicture(widget._media.posterPath),
               ),
               Row(
                 children: [
@@ -65,11 +64,14 @@ class _MediaCardState extends State<MediaCard> {
           ),
           Container(
             width: 154,
-            child: Text(
-              widget._media.title,
-              softWrap: true,
-              maxLines: 2,
-              style: kCardTitleStyle.apply(color: kMainTextColor),
+            child: Hero(
+              tag: widget._media.title,
+              child: Text(
+                widget._media.title,
+                softWrap: true,
+                maxLines: 2,
+                style: kCardTitleStyle.apply(color: kMainTextColor),
+              ),
             ),
           ),
           SizedBox(height: 6),

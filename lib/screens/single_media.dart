@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:Movies/cards/backdrop_path.dart';
-import 'package:Movies/cards/single_media_card.dart';
+import 'package:Movies/cards/single_media_picture.dart';
 import 'package:Movies/models/media.dart';
 import 'package:Movies/models/media_detail.dart';
 import 'package:Movies/partials/buttons/close_button.dart';
@@ -71,7 +71,7 @@ class _SingleMediaState extends State<SingleMedia> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    SingleMediaCard(widget._media.posterPath),
+                    SingleMediaPicture(widget._media.posterPath),
                     Stars((widget._media.voteAverage / 2).floor())
                   ],
                 ),
@@ -86,9 +86,12 @@ class _SingleMediaState extends State<SingleMedia> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget._media.title,
-                  style: kLargeTitleStyle,
+                Hero(
+                  tag:widget._media.title,
+                  child: Text(
+                    widget._media.title,
+                    style: kLargeTitleStyle,
+                  ),
                 ),
                 const SizedBox(
                   height: kVerticalSpacer / 3,

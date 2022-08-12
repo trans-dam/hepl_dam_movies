@@ -2,10 +2,10 @@ import 'package:Movies/models/data_item.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
-class MenuItem extends StatelessWidget {
+class MyMenuItem extends StatelessWidget {
   final MenuItemData _menuItemData;
 
-  const MenuItem(this._menuItemData, {Key? key}) : super(key: key);
+  const MyMenuItem(this._menuItemData, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

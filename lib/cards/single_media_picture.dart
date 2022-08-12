@@ -1,10 +1,10 @@
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
-class SingleMediaCard extends StatelessWidget {
+class SingleMediaPicture extends StatelessWidget {
   final String path;
 
-  const SingleMediaCard(this.path, {Key? key}) : super(key: key);
+  const SingleMediaPicture(this.path, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

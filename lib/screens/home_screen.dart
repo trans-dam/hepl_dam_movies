@@ -33,27 +33,19 @@ class _HomePageState extends State<HomeScreen> with TickerProviderStateMixin {
       drawer: Drawer(
         child: SidebarScreen(),
       ),
-      body: SlidingUpPanel(
-        borderRadius: kBorderRadiusItem,
-        boxShadow: kBoxShadowItem,
-        backdropColor: Colors.red,
-        panel: Center(
-          child: Text("This is the sliding Widget"),
-        ),
-        body: SafeArea(
-          bottom: false,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                NavBar(),
-                MediaSlider("Films populaires", "Cette semaine", "movie"),
-                MediaSlider("Séries populaires", "Cette semaine", "tv"),
-                SizedBox(
-                  height: kVerticalSpacer * 3,
-                )
-              ],
-            ),
+      body: SafeArea(
+        bottom: false,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              NavBar(),
+              MediaSlider("Films populaires", "Cette semaine", "movie"),
+              MediaSlider("Séries populaires", "Cette semaine", "tv"),
+              SizedBox(
+                height: kVerticalSpacer * 3,
+              )
+            ],
           ),
         ),
       ),

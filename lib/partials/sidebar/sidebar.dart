@@ -58,9 +58,9 @@ class _SidebarScreenState extends State<SidebarScreen> {
                   )
                 ],
               ),
-              MenuItem(menuItemsData[0]),
-              MenuItem(menuItemsData[1]),
-              MenuItem(menuItemsData[2]),
+              MyMenuItem(menuItemsData[0]),
+              MyMenuItem(menuItemsData[1]),
+              MyMenuItem(menuItemsData[2]),
               Spacer(),
               Row(
                 children: [
