@@ -1,6 +1,6 @@
-import 'package:Movies/screens/home.dart';
-import 'package:Movies/screens/login_form.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/screens/home.dart';
+import 'package:movies/screens/login_form.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';

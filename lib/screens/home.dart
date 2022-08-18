@@ -1,7 +1,7 @@
-import 'package:Movies/partials/navbar/nav_bar.dart';
-import 'package:Movies/partials/sidebar/sidebar.dart';
-import 'package:Movies/partials/sliders/media_slider.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/partials/navbar/nav_bar.dart';
+import 'package:movies/partials/sidebar/sidebar.dart';
+import 'package:movies/partials/sliders/media_slider.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

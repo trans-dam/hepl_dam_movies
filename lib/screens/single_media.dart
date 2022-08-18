@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:Movies/cards/backdrop_path.dart';
-import 'package:Movies/cards/single_media_picture.dart';
-import 'package:Movies/models/media.dart';
-import 'package:Movies/models/media_detail.dart';
-import 'package:Movies/partials/buttons/close_button.dart';
-import 'package:Movies/partials/stars.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/cards/backdrop_path.dart';
+import 'package:movies/cards/single_media_picture.dart';
+import 'package:movies/models/media.dart';
+import 'package:movies/models/media_detail.dart';
+import 'package:movies/partials/buttons/close_button.dart';
+import 'package:movies/partials/stars.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

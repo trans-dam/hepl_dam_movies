@@ -1,7 +1,7 @@
-import 'package:Movies/models/data_item.dart';
-import 'package:Movies/partials/avatar.dart';
-import 'package:Movies/partials/sidebar/menu_item.dart';
-import 'package:Movies/screens/login_form.dart';
+import 'package:movies/models/data_item.dart';
+import 'package:movies/partials/avatar.dart';
+import 'package:movies/partials/sidebar/menu_item.dart';
+import 'package:movies/screens/login_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

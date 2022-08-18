@@ -1,4 +1,4 @@
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
 class SingleMediaPicture extends StatelessWidget {

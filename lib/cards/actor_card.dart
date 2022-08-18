@@ -1,4 +1,4 @@
-import 'package:Movies/cards/single_actor_picture.dart';
+import 'package:movies/cards/single_actor_picture.dart';
 import 'package:flutter/material.dart';
 
 import '../models/actor.dart';

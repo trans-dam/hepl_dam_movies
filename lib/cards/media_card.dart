@@ -1,8 +1,8 @@
-import 'package:Movies/cards/media_rate.dart';
-import 'package:Movies/cards/single_media_picture.dart';
-import 'package:Movies/models/media.dart';
-import 'package:Movies/screens/single_media.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/cards/media_rate.dart';
+import 'package:movies/cards/single_media_picture.dart';
+import 'package:movies/models/media.dart';
+import 'package:movies/screens/single_media.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';

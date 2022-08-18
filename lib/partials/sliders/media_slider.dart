@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:Movies/models/media.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/models/media.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;

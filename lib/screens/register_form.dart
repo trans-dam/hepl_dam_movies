@@ -1,12 +1,12 @@
 import 'dart:core';
 
-import 'package:Movies/models/error_firebase_auth.dart';
-import 'package:Movies/partials/buttons/button.dart';
-import 'package:Movies/partials/headers/app_name.dart';
-import 'package:Movies/partials/headers/app_slogan.dart';
-import 'package:Movies/screens/home.dart';
-import 'package:Movies/screens/login_form.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/models/error_firebase_auth.dart';
+import 'package:movies/partials/buttons/button.dart';
+import 'package:movies/partials/headers/app_name.dart';
+import 'package:movies/partials/headers/app_slogan.dart';
+import 'package:movies/screens/home.dart';
+import 'package:movies/screens/login_form.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';

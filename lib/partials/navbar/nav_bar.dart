@@ -1,5 +1,5 @@
-import 'package:Movies/partials/navbar/search_field.dart';
-import 'package:Movies/styles/constants.dart';
+import 'package:movies/partials/navbar/search_field.dart';
+import 'package:movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../screens/profile.dart';
