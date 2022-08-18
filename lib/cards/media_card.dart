@@ -27,9 +27,6 @@ class _MediaCardState extends State<MediaCard> {
     dateFormat = DateFormat.yMMMMd('fr');
   }
 
-  void _refresh() {
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +59,7 @@ class _MediaCardState extends State<MediaCard> {
           const SizedBox(
             height: kVerticalSpacer / 2,
           ),
-          Container(
+          SizedBox(
             width: 154,
             child: Hero(
               tag: widget._media.title,
@@ -74,7 +71,7 @@ class _MediaCardState extends State<MediaCard> {
               ),
             ),
           ),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           Text(
             dateFormat.format(widget._media.releaseDate),
             style: kCardSubtitleStyle.apply(color: kMainTextColor),

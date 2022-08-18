@@ -9,6 +9,7 @@ import 'package:Movies/screens/login_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatefulWidget {
@@ -21,7 +22,6 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   late String _email;
   late String _password;
-  late String _username;
 
   final _auth = FirebaseAuth.instance;
   final _loginFormKey = GlobalKey<FormState>();
@@ -57,10 +57,7 @@ class _RegisterFormState extends State<RegisterForm> {
                           }
                           return null;
                         },
-                        onChanged: (text) {
-                          _username = text;
-                          print(text);
-                        },
+                        onChanged: (text) {},
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.all(0),
                           isDense: true,
@@ -76,7 +73,7 @@ class _RegisterFormState extends State<RegisterForm> {
                           ),
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         color: kMainTextColor,
                         height: kVerticalSpacer * 2,
                       ),
@@ -91,7 +88,9 @@ class _RegisterFormState extends State<RegisterForm> {
                         },
                         onChanged: (text) {
                           _email = text;
-                          print(text);
+                          if (kDebugMode) {
+                            print(text);
+                          }
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.all(0),
@@ -108,7 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
                           ),
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         color: kMainTextColor,
                         height: kVerticalSpacer * 2,
                       ),
@@ -124,7 +123,9 @@ class _RegisterFormState extends State<RegisterForm> {
                         },
                         obscureText: true,
                         onChanged: (text) {
-                          print(text);
+                          if (kDebugMode) {
+                            print(text);
+                          }
                           _password = text;
                         },
                         decoration: const InputDecoration(

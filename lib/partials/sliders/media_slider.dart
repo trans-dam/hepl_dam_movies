@@ -1,9 +1,7 @@
 import 'dart:convert';
-
-import 'package:Movies/models/data_item.dart';
 import 'package:Movies/models/media.dart';
-import 'package:Movies/partials/sidebar/menu_item.dart';
 import 'package:Movies/styles/constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -47,8 +45,10 @@ class _MediaSliderState extends State<MediaSlider> {
               _medias.add(movie);
             });
           } catch (error) {
-            print("Unable to add media ${_medias}");
-            print(error);
+            if (kDebugMode) {
+              print("Unable to add media $_medias");
+              print(error);
+            }
           }
         }
       } else {
@@ -99,14 +99,14 @@ class _MediaSliderState extends State<MediaSlider> {
                 widget._title,
                 style: kLargeTitleStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 widget._subTitle,
                 style: kSubtitleStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: kVerticalSpacer,
               )
             ],

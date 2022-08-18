@@ -9,7 +9,7 @@ class Avatar extends StatelessWidget {
     return Container(
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(24)),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
         boxShadow: kBoxShadowItem,
       ),
       child: const Image(

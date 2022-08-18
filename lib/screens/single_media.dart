@@ -6,6 +6,7 @@ import 'package:Movies/models/media_detail.dart';
 import 'package:Movies/partials/buttons/close_button.dart';
 import 'package:Movies/partials/stars.dart';
 import 'package:Movies/styles/constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class _SingleMediaState extends State<SingleMedia> {
 
   @override
   void reassemble() {
+    super.reassemble();
     getMediaDetailFromApi();
     initializeDateFormatting();
     dateFormat = DateFormat.yMMMMd('fr');
@@ -44,8 +46,10 @@ class _SingleMediaState extends State<SingleMedia> {
         .get(Uri.parse(
             'https://api.themoviedb.org/3/movie/${widget._media.movieId}?api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr'))
         .then((response) {
-      print(
+      if (kDebugMode) {
+        print(
           'https://api.themoviedb.org/3/movie/${widget._media.movieId}?api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr');
+      }
       if (response.statusCode == 200) {
         setState(() {
           widget.mediaDetail.fromJson(jsonDecode(response.body));

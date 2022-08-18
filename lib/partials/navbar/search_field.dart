@@ -1,4 +1,5 @@
 import 'package:Movies/styles/constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SearchField extends StatefulWidget {
@@ -21,7 +22,9 @@ class _SearchFieldState extends State<SearchField> {
             boxShadow: kBoxShadowItem),
         child: TextField(
           onChanged: (text) {
-            print(text);
+            if (kDebugMode) {
+              print(text);
+            }
           },
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.all(0),

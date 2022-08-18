@@ -27,7 +27,7 @@ class _ActorListState extends State<ActorList> {
   void getActorsFromApi() {
     http
         .get(Uri.parse(
-            'https://api.themoviedb.org/3/movie/${this.widget.movieId}/casts?api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr'))
+            'https://api.themoviedb.org/3/movie/${widget.movieId}/casts?api_key=fc0b570a0ec2e5a82a99bf4d8340e012&language=fr-fr'))
         .then((response) {
       if (response.statusCode == 200) {
         dynamic datas = jsonDecode(response.body);
@@ -49,7 +49,7 @@ class _ActorListState extends State<ActorList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 320,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -63,7 +63,7 @@ class _ActorListState extends State<ActorList> {
             itemCount: actors.length,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: kVerticalSpacer * 3,
         )
       ],

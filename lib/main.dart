@@ -4,6 +4,7 @@ import 'package:Movies/styles/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          print(snapshot.error);
+          if (kDebugMode) {
+            print(snapshot.error);
+          }
         }
         if (snapshot.connectionState == ConnectionState.done) {
           FirebaseAuth.instance.currentUser;
@@ -36,16 +39,14 @@ class MyApp extends StatelessWidget {
               primaryColor: kMainTextColor,
             ),
             home: FirebaseAuth.instance.currentUser == null
-                ? LoginForm()
-                : Home(),
+                ? const LoginForm()
+                : const Home(),
           );
         } else {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
-              body: Container(
-                child: Text(snapshot.error.toString()),
-              ),
+              body: Text(snapshot.error.toString()),
             ),
           );
         }

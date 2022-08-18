@@ -1,5 +1,6 @@
 import 'package:Movies/models/data_item.dart';
 import 'package:Movies/styles/constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MyMenuItem extends StatelessWidget {
@@ -26,7 +27,9 @@ class MyMenuItem extends StatelessWidget {
                 iconSize: 18,
                 color: Colors.white,
                 onPressed: () {
-                  print(_menuItemData.name);
+                  if (kDebugMode) {
+                    print(_menuItemData.name);
+                  }
                 },
               ),
             ),
@@ -39,7 +42,7 @@ class MyMenuItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: kVerticalSpacer,
         )
       ],

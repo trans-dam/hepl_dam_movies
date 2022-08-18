@@ -4,7 +4,6 @@ import 'package:Movies/partials/sidebar/menu_item.dart';
 import 'package:Movies/screens/login_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../styles/constants.dart';
 
@@ -20,6 +19,7 @@ class _SidebarScreenState extends State<SidebarScreen> {
     await FirebaseAuth.instance.signOut();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
@@ -37,7 +37,7 @@ class _SidebarScreenState extends State<SidebarScreen> {
                 children: [
                   Row(
                     children: [
-                      Avatar(),
+                      const Avatar(),
                       const SizedBox(
                         width: kHorizontalSpacer,
                       ),
@@ -61,7 +61,7 @@ class _SidebarScreenState extends State<SidebarScreen> {
               MyMenuItem(menuItemsData[0]),
               MyMenuItem(menuItemsData[1]),
               MyMenuItem(menuItemsData[2]),
-              Spacer(),
+              const Spacer(),
               Row(
                 children: [
                   const Icon(

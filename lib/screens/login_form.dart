@@ -10,6 +10,7 @@ import 'package:Movies/screens/register_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -63,7 +64,9 @@ class _LoginFormState extends State<LoginForm> {
                         },
                         onChanged: (text) {
                           _email = text;
-                          print(text);
+                          if (kDebugMode) {
+                            print(text);
+                          }
                         },
                         decoration: const InputDecoration(
                           contentPadding: EdgeInsets.all(0),
@@ -80,7 +83,7 @@ class _LoginFormState extends State<LoginForm> {
                           ),
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         color: kMainTextColor,
                         height: kVerticalSpacer * 2,
                       ),
@@ -96,7 +99,9 @@ class _LoginFormState extends State<LoginForm> {
                         },
                         obscureText: true,
                         onChanged: (text) {
-                          print(text);
+                          if (kDebugMode) {
+                            print(text);
+                          }
                           _password = text;
                         },
                         decoration: const InputDecoration(
@@ -125,7 +130,7 @@ class _LoginFormState extends State<LoginForm> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (contex) => RegisterForm()));
+                                builder: (context) => const RegisterForm()));
                       },
                       child: const Text("Créer un compte"),
                     ),
@@ -136,7 +141,7 @@ class _LoginFormState extends State<LoginForm> {
                               .sendPasswordResetEmail(email: _email)
                               .then((value) {
                             MyAlertDialog("Réinitialisation du mot de passe",
-                                "Un mail a été envoyé avec succès à l’adresse ${_email}");
+                                "Un mail a été envoyé avec succès à l’adresse $_email");
                           });
                         }
                       },
@@ -160,7 +165,7 @@ class _LoginFormState extends State<LoginForm> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Home(),
+                          builder: (context) => const Home(),
                         ),
                       );
                     } on FirebaseAuthException catch (e) {

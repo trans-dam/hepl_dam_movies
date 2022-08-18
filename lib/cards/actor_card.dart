@@ -6,7 +6,8 @@ import '../styles/constants.dart';
 
 
 class ActorCard extends StatelessWidget {
-  const ActorCard({required this.actor, required this.spacer});
+
+  const ActorCard({Key? key, required this.actor, required this.spacer}) : super(key: key);
 
   final Actor actor;
   final double spacer;
@@ -16,7 +17,7 @@ class ActorCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(boxShadow: kBoxShadowItem, color: Colors.white, borderRadius: BorderRadius.circular(10)),
       width: 154,
-      margin: EdgeInsets.only(left: this.spacer, right: kHorizontalSpacer, bottom: kVerticalSpacer),
+      margin: EdgeInsets.only(left: spacer, right: kHorizontalSpacer, bottom: kVerticalSpacer),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Column(
@@ -24,10 +25,10 @@ class ActorCard extends StatelessWidget {
           children: [
             SingleActorPicture(
                 profilePath:
-                    actor.profilePath == null || actor.profilePath.isEmpty
+                    actor.profilePath.isEmpty
                         ? ""
                         : actor.profilePath),
-            SizedBox(
+            const SizedBox(
               height: kVerticalSpacer / 2,
             ),
             Padding(
@@ -35,7 +36,7 @@ class ActorCard extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: kHorizontalSpacer / 2),
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 154,
                     child: Text(
                       actor.name,
@@ -44,10 +45,10 @@ class ActorCard extends StatelessWidget {
                       style: kCardTitleStyle.apply(color: kMainTextColor),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     width: 154,
                     child: Text(
                       actor.character,

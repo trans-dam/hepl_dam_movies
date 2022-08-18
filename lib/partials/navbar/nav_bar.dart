@@ -17,7 +17,7 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(kDefaultSpacer),
+      padding: const EdgeInsets.all(kDefaultSpacer),
       child: Row(
         children: [
           const BurgerMenu(),
@@ -38,10 +38,10 @@ class _NavBarState extends State<NavBar> {
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => Profile()),
+                MaterialPageRoute(builder: (context) => const Profile()),
               );
             },
-            child: Avatar(),
+            child: const Avatar(),
           ),
         ],
       ),

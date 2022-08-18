@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import '../styles/constants.dart';
 
 class Profile extends StatefulWidget {
+  const Profile({Key? key}) : super(key: key);
+
   @override
   _ProfileState createState() => _ProfileState();
 }
@@ -113,7 +115,7 @@ class _ProfileState extends State<Profile> {
                                         ],
                                       ),
                                       actions: [
-                                        FlatButton(
+                                        TextButton(
                                             onPressed: () {
                                               Navigator.of(context).pop();
                                             },
@@ -149,9 +151,9 @@ class _ProfileState extends State<Profile> {
                             onTap: getImage,
                             child: Container(
                               child: CircleAvatar(
-                                backgroundColor: Color(0xFFE7EEFB),
+                                backgroundColor: kMainBackgroundColor,
                                 child: _image == null
-                                    ? Icon(
+                                    ? const Icon(
                                         Icons.download,
                                         color: kMainTextColor,
                                       )
@@ -175,21 +177,21 @@ class _ProfileState extends State<Profile> {
                                       color: kSecondColor, width: kBorderWith)),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: kHorizontalSpacer,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "$_name",
+                                _name,
                                 style: kBodyLabelStyle,
                               ),
-                              SizedBox(
-                                height: 8,
+                              const SizedBox(
+                                height: kVerticalSpacer/3,
                               ),
                               Text(
-                                "$_bio",
+                                _bio,
                                 style: kBodyLabelStyle,
                               ),
                             ],
@@ -197,7 +199,7 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: kVerticalSpacer,
                     )
                   ],

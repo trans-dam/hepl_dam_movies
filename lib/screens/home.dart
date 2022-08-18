@@ -3,7 +3,6 @@ import 'package:Movies/partials/sidebar/sidebar.dart';
 import 'package:Movies/partials/sliders/media_slider.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
