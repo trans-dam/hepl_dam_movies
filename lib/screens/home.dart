@@ -5,14 +5,14 @@ import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomeScreen> with TickerProviderStateMixin {
+class _HomePageState extends State<Home> with TickerProviderStateMixin {
   late TextEditingController _controller;
 
   @override

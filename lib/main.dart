@@ -1,4 +1,4 @@
-import 'package:Movies/screens/home_screen.dart';
+import 'package:Movies/screens/home.dart';
 import 'package:Movies/screens/login_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             ),
             home: FirebaseAuth.instance.currentUser == null
                 ? LoginForm()
-                : HomeScreen(),
+                : Home(),
           );
         } else {
           return MaterialApp(

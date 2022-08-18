@@ -6,7 +6,7 @@ import '../styles/constants.dart';
 
 
 class ActorCard extends StatelessWidget {
-  ActorCard({required this.actor, required this.spacer});
+  const ActorCard({required this.actor, required this.spacer});
 
   final Actor actor;
   final double spacer;

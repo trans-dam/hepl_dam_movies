@@ -1,19 +1,16 @@
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../styles/constants.dart';
 
-class ProfileScreen extends StatefulWidget {
+class Profile extends StatefulWidget {
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileState extends State<Profile> {
   String _name = "Ton nom d’utilisateur";
   String _bio = "Quelques mots sur toi...";
 

@@ -2,7 +2,7 @@ import 'package:Movies/partials/navbar/search_field.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../screens/profile_screen.dart';
+import '../../screens/profile.dart';
 import '../avatar.dart';
 import 'burger_menu.dart';
 
@@ -38,7 +38,7 @@ class _NavBarState extends State<NavBar> {
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ProfileScreen()),
+                MaterialPageRoute(builder: (context) => Profile()),
               );
             },
             child: Avatar(),

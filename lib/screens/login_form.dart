@@ -5,7 +5,7 @@ import 'package:Movies/partials/buttons/button.dart';
 import 'package:Movies/partials/dialogs/alert_dialog.dart';
 import 'package:Movies/partials/headers/app_name.dart';
 import 'package:Movies/partials/headers/app_slogan.dart';
-import 'package:Movies/screens/home_screen.dart';
+import 'package:Movies/screens/home.dart';
 import 'package:Movies/screens/register_form.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:email_validator/email_validator.dart';
@@ -160,7 +160,7 @@ class _LoginFormState extends State<LoginForm> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => Home(),
                         ),
                       );
                     } on FirebaseAuthException catch (e) {
