@@ -2,6 +2,7 @@ import 'package:Movies/partials/navbar/search_field.dart';
 import 'package:Movies/styles/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/profile_screen.dart';
 import '../avatar.dart';
 import 'burger_menu.dart';
 
@@ -16,25 +17,32 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(kDefaultSpacer),
+      padding: EdgeInsets.all(kDefaultSpacer),
       child: Row(
-        children: const [
-          BurgerMenu(),
-          SizedBox(
+        children: [
+          const BurgerMenu(),
+          const SizedBox(
             width: kDefaultSpacer,
           ),
-          SearchField(),
-          SizedBox(
+          const SearchField(),
+          const SizedBox(
             width: kDefaultSpacer,
           ),
-          Icon(
+          const Icon(
             Icons.notifications,
             color: kMainTextColor,
           ),
-          SizedBox(
+          const SizedBox(
             width: kDefaultSpacer,
           ),
-          Avatar()
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
+            },
+            child: Avatar(),
+          ),
         ],
       ),
     );

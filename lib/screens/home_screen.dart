@@ -30,8 +30,15 @@ class _HomePageState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: SidebarScreen(),
+      drawer: Theme(
+        data: Theme.of(context).copyWith(
+          // Set the transparency here
+          canvasColor: Colors
+              .transparent,
+        ),
+        child: const Drawer(
+          child: SidebarScreen(),
+        ),
       ),
       body: SafeArea(
         bottom: false,

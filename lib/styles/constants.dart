@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 const kMainBackgroundColor = Color(0xFFeaeaea);
+const kCardPopupBackgroundColor = Color(0xFFF5F8FF);
 const kMainTextColor = Color(0xFF254D60);
+const kMainTextColorLighter = Color(0xFF448CAD);
 const kSecondColor = Color(0xFF3F8EFC);
 const kPrimaryLabelColor = kMainTextColor;
 const kSecondaryLabelColor = Color(0xFF797F8A);
 const kThirdColor = Color(0xFFFF6978);
 const double kHorizontalSpacer = 16;
+const double kBorderWith = 5;
 const double kVerticalSpacer = 26;
 const double kDefaultWidth = 36;
 const double kDefaultSpacer = 17;
 const BorderRadius kBorderRadiusItem = BorderRadius.all(Radius.circular(10));
+const kGradientColors = [kMainTextColor, kMainTextColorLighter];
 
 List<BoxShadow> kBoxShadowItem = [
   BoxShadow(
@@ -133,6 +137,13 @@ const kCaptionLabelStyle = TextStyle(
 var kLoginInputTextStyle = TextStyle(
   fontSize: 15.0,
   color: Colors.black.withOpacity(0.3),
+  fontFamily: "main",
+  decoration: TextDecoration.none,
+);
+const kCalloutLabelStyle =  TextStyle(
+  fontSize: 20.0,
+  fontWeight: FontWeight.w800,
+  color: kPrimaryLabelColor,
   fontFamily: "main",
   decoration: TextDecoration.none,
 );

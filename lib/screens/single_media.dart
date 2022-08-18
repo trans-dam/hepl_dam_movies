@@ -11,6 +11,8 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import '../partials/sliders/actor_slider.dart';
+
 class SingleMedia extends StatefulWidget {
   final Media _media;
   final MediaDetail mediaDetail = MediaDetail();
@@ -167,7 +169,11 @@ class _SingleMediaState extends State<SingleMedia> {
                     '${(widget.mediaDetail.runtime / 60).truncate().toString().padLeft(2, '0')} : ${(widget.mediaDetail.runtime % 60).truncate().toString().padLeft(2, '0')}',
                     style: kBodyLabelStyle,
                     textAlign: TextAlign.left,
-                  )
+                  ),
+                  const SizedBox(
+                    height: kVerticalSpacer,
+                  ),
+                  ActorList(movieId: widget._media.movieId),
                 ],
               ),
             )

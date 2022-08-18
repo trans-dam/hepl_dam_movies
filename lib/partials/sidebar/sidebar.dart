@@ -64,11 +64,11 @@ class _SidebarScreenState extends State<SidebarScreen> {
               Spacer(),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.logout,
                     color: Colors.grey,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   TextButton(
                     onPressed: () {
                       _signOut();
@@ -77,7 +77,7 @@ class _SidebarScreenState extends State<SidebarScreen> {
                           MaterialPageRoute(
                               builder: (context) => const LoginForm()));
                     },
-                    child: Text(
+                    child: const Text(
                       "Je me déconnecte!",
                       style: fontStyleLegend,
                     ),

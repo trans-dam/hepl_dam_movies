@@ -45,5 +45,11 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choisir sa photo de profil</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Choisir sa photo de profil.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Choisir sa photo de profil.</string>
 </dict>
 </plist>
