@@ -12,7 +12,7 @@ class Button extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
-          horizontal: kHorizontalSpacer, vertical: kVerticalSpacer / 2),
+          horizontal: kHorizontalSpacer, vertical: kVerticalSpacer / 8),
       margin: const EdgeInsets.only(top: kVerticalSpacer),
       decoration: BoxDecoration(
           borderRadius: kBorderRadiusItem,
