@@ -113,6 +113,7 @@ class _MediaSliderState extends State<MediaSlider> {
           ),
         ),
         SizedBox(
+
           height: 350,
           child: PageView.builder(
               scrollDirection: Axis.horizontal,
